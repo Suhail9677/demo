@@ -1,0 +1,28 @@
+package Class1;
+
+import java.util.*;
+
+class Chef implements Runnable{
+	public void run() {
+		try {
+			for(int i=0;i<10;i++){
+				System.out.println("Thread "+Thread.currentThread().getName()+" :"+i);
+				Thread.sleep(100);
+			}
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+} 
+
+public class MultiThreadClass {
+	public static void main(String[] args) {
+		Chef c1 = new Chef();
+		Chef c2 = new Chef();
+		Thread t1 = new Thread(c1);
+		Thread t2
+		= new Thread(c2);
+		t1.start();
+		t2.start();
+	}
+}
